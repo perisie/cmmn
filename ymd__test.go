@@ -2,9 +2,21 @@ package cmmn
 
 import (
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"testing"
 	"time"
 )
+
+func Test__ymd__is__between(t *testing.T) {
+	ymd, _ := Ymd__new("2025-08-19")
+	require.True(t, ymd.Is__between(*ymd, *ymd))
+	ymd__before, _ := Ymd__new("2025-08-18")
+	require.False(t, ymd.Is__between(*ymd__before, *ymd__before))
+	ymd__after, _ := Ymd__new("2025-08-20")
+	require.False(t, ymd.Is__between(*ymd__after, *ymd__after))
+	require.True(t, ymd.Is__between(*ymd__before, *ymd__after))
+	require.True(t, ymd.Is__between(*ymd__after, *ymd__before))
+}
 
 func Test__ymd(t *testing.T) {
 	_, err := Ymd__new("")
