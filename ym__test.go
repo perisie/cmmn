@@ -18,3 +18,12 @@ func Test__ym(t *testing.T) {
 	ym__next := ym.Add(6)
 	require.Equal(t, "2026-01", ym__next.Get__yyyy_mm())
 }
+
+func Test__ym__bad(t *testing.T) {
+	_, err := Ym__new("")
+	require.Error(t, err)
+	_, err = Ym__new("-")
+	require.Error(t, err)
+	_, err = Ym__new("2025-")
+	require.Error(t, err)
+}
