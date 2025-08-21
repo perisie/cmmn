@@ -9,21 +9,7 @@ type Ymd struct {
 }
 
 func (y Ymd) Get__mmm() string {
-	mm_airports := map[time.Month]string{
-		time.January:   "JAN",
-		time.February:  "FEB",
-		time.March:     "MAR",
-		time.April:     "APR",
-		time.May:       "MAY",
-		time.June:      "JUN",
-		time.July:      "JUL",
-		time.August:    "AUG",
-		time.September: "SEP",
-		time.October:   "OCT",
-		time.November:  "NOV",
-		time.December:  "DEC",
-	}
-	return mm_airports[y.t.Month()]
+	return g__mmm[y.t.Month()]
 }
 
 func (y Ymd) Get__time() time.Time {

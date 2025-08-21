@@ -16,6 +16,14 @@ func Test__ymd__is__between(t *testing.T) {
 	require.False(t, ymd.Is__between(*ymd__after, *ymd__after))
 	require.True(t, ymd.Is__between(*ymd__before, *ymd__after))
 	require.True(t, ymd.Is__between(*ymd__after, *ymd__before))
+	ymd__before, _ = Ymd__new("2024-08-18")
+	require.False(t, ymd.Is__between(*ymd__before, *ymd__before))
+	ymd__before, _ = Ymd__new("2025-07-18")
+	require.False(t, ymd.Is__between(*ymd__before, *ymd__before))
+	ymd__after, _ = Ymd__new("2026-08-20")
+	require.False(t, ymd.Is__between(*ymd__after, *ymd__after))
+	ymd__after, _ = Ymd__new("2025-09-20")
+	require.False(t, ymd.Is__between(*ymd__after, *ymd__after))
 }
 
 func Test__ymd(t *testing.T) {

@@ -19,6 +19,10 @@ func (y *Ym) Add(months int) Ym {
 	return ym
 }
 
+func (y *Ym) Get__mmm() string {
+	return g__mmm[y.t.Month()]
+}
+
 func (y *Ym) Get__month() time.Month {
 	return y.t.Month()
 }

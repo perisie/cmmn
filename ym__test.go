@@ -27,3 +27,10 @@ func Test__ym__bad(t *testing.T) {
 	_, err = Ym__new("2025-")
 	require.Error(t, err)
 }
+
+func Test__ym__mmm(t *testing.T) {
+	yyyy_mm := "2025-07"
+	ym, err := Ym__new(yyyy_mm)
+	require.NoError(t, err)
+	require.Equal(t, "JUL", ym.Get__mmm())
+}
