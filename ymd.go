@@ -48,6 +48,10 @@ func (y Ymd) Is__between(fr Ymd, to Ymd) bool {
 	return true
 }
 
+func (y Ymd) Is__today(date time.Time) bool {
+	return date.Format(time.DateOnly) == y.Get__yyyy_mm_dd()
+}
+
 func Ymd__new(yyyy_mm_dd string) (*Ymd, error) {
 	t, err := time.Parse(time.DateOnly, yyyy_mm_dd)
 	if err != nil {

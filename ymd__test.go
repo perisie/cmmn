@@ -39,6 +39,13 @@ func Test__ymd(t *testing.T) {
 	assert.Equal(t, "AUG", ymd.Get__mmm())
 }
 
+func Test__ymd__today(t *testing.T) {
+	now := time.Now()
+	ymd, err := Ymd__new(now.Format(time.DateOnly))
+	assert.NoError(t, err)
+	assert.True(t, ymd.Is__today(now))
+}
+
 func Test__ymd__unsafe(t *testing.T) {
 	yyyy_mm_dd := "2025-08-16"
 	ymd := Ymd__new__unsafe(yyyy_mm_dd)
